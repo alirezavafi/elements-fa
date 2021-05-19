@@ -1,4 +1,4 @@
-** Persian localized StopLight Elements **
+**Persian localized StopLight Elements**
 
 [![Elements - OpenAPI Powered API Documentation](docs/images/readme-header.svg)][elements_landing_page]
 
