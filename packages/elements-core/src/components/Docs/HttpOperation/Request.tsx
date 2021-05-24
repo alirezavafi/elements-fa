@@ -7,7 +7,7 @@ import { SectionTitle, SubSectionPanel } from '../Sections';
 import { Body } from './Body';
 import { Parameters } from './Parameters';
 
-interface IRequestProps {
+export interface IRequestProps {
   operation: IHttpOperation;
   onChange: (requestBodyIndex: number) => void;
 }
@@ -41,7 +41,7 @@ export const Request: React.FunctionComponent<IRequestProps> = ({
 
   return (
     <Box mb={10}>
-      <SectionTitle title="Request" />
+      <SectionTitle title="درخواست" />
       <SubSectionPanel title={pathParamBlock} hasContent={pathParams.length > 0}>
         <Parameters parameterType="path" parameters={pathParams} />
       </SubSectionPanel>

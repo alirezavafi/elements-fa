@@ -9,12 +9,20 @@ import { MarkdownViewer } from '../../MarkdownViewer';
 import { SectionTitle, SubSectionPanel } from '../Sections';
 import { Parameters } from './Parameters';
 
-interface ResponseProps {
+export const HttpCodeColor = {
+  1: 'gray',
+  2: 'green',
+  3: 'yellow',
+  4: 'orange',
+  5: 'red',
+};
+
+export interface ResponseProps {
   response: IHttpOperationResponse;
   onMediaTypeChange(mediaType: string): void;
 }
 
-interface ResponsesProps {
+export interface ResponsesProps {
   responses: IHttpOperationResponse[];
   onMediaTypeChange(mediaType: string): void;
   onStatusCodeChange(statusCode: string): void;
@@ -38,7 +46,7 @@ export const Responses = ({ responses: unsortedResponses, onStatusCodeChange, on
   return (
     <Tabs selectedId={activeResponseId} onChange={setActiveResponseId}>
       <Box>
-        <SectionTitle title="Responses">
+        <SectionTitle title="پاسخ">
           <TabList>
             {responses.map(({ code }) => (
               <Tab key={code} id={code}>
@@ -60,7 +68,10 @@ export const Responses = ({ responses: unsortedResponses, onStatusCodeChange, on
 };
 Responses.displayName = 'HttpOperation.Responses';
 
-const Response = ({ response: { contents = [], headers = [], description }, onMediaTypeChange }: ResponseProps) => {
+export const Response = ({
+  response: { contents = [], headers = [], description },
+  onMediaTypeChange,
+}: ResponseProps) => {
   const [chosenContent, setChosenContent] = React.useState(0);
   const refResolver = useInlineRefResolver();
 

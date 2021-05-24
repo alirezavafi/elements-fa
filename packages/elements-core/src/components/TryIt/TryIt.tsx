@@ -168,7 +168,7 @@ export const TryIt: React.FC<TryItProps> = ({ httpOperation, mockUrl, onRequestC
         <Panel.Content className="SendButtonHolder">
           <Flex alignItems="center">
             <Button appearance="primary" loading={loading} disabled={loading} onPress={handleClick} size="sm">
-              Send Request
+              ارسال درخواست
             </Button>
 
             {mockUrl && (

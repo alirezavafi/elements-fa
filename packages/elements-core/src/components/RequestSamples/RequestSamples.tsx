@@ -39,48 +39,50 @@ export const RequestSamples = React.memo<RequestSamplesProps>(({ request }) => {
   return (
     <Panel rounded isCollapsible={false}>
       <Panel.Titlebar rightComponent={<CopyButton size="sm" copyValue={requestSample || ''} />}>
-        <Box ml={-2}>
-          <Menu
-            label="Request Sample Language"
-            trigger={
-              <Button size="sm" iconRight="caret-down" appearance="minimal">
-                Request Sample: {selectedLanguage} {selectedLibrary ? ` / ${selectedLibrary}` : ''}
-              </Button>
-            }
-          >
-            {Object.entries(requestSampleConfigs).map(([language, config]) => {
-              const hasLibraries = config.libraries && Object.keys(config.libraries).length > 0;
-              return (
-                <MenuItem
-                  key={language}
-                  indent
-                  text={language}
-                  onClick={
-                    hasLibraries
-                      ? undefined
-                      : () => {
-                          setSelectedLanguage(language);
-                          setSelectedLibrary('');
-                        }
-                  }
-                >
-                  {hasLibraries &&
-                    Object.keys(config.libraries!).map(library => (
-                      <MenuItem
-                        key={library}
-                        text={library}
-                        indent
-                        onClick={() => {
-                          setSelectedLanguage(language);
-                          setSelectedLibrary(library);
-                        }}
-                      />
-                    ))}
-                </MenuItem>
-              );
-            })}
-          </Menu>
-        </Box>
+        <div style={{ direction: 'rtl' }}>
+          <Box ml={-2}>
+            <Menu
+              label="زبان مثال درخواست"
+              trigger={
+                <Button size="sm" iconRight="caret-down" appearance="minimal">
+                  نمونه درخواست: {selectedLanguage} {selectedLibrary ? ` / ${selectedLibrary}` : ''}
+                </Button>
+              }
+            >
+              {Object.entries(requestSampleConfigs).map(([language, config]) => {
+                const hasLibraries = config.libraries && Object.keys(config.libraries).length > 0;
+                return (
+                  <MenuItem
+                    key={language}
+                    indent
+                    text={language}
+                    onClick={
+                      hasLibraries
+                        ? undefined
+                        : () => {
+                            setSelectedLanguage(language);
+                            setSelectedLibrary('');
+                          }
+                    }
+                  >
+                    {hasLibraries &&
+                      Object.keys(config.libraries!).map(library => (
+                        <MenuItem
+                          key={library}
+                          text={library}
+                          indent
+                          onClick={() => {
+                            setSelectedLanguage(language);
+                            setSelectedLibrary(library);
+                          }}
+                        />
+                      ))}
+                  </MenuItem>
+                );
+              })}
+            </Menu>
+          </Box>
+        </div>
       </Panel.Titlebar>
       <Panel.Content p={0}>
         <CodeViewer

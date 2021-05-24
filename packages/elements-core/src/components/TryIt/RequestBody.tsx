@@ -21,10 +21,10 @@ export const RequestBody: React.FC<RequestBodyProps> = ({ examples, requestBody,
         rightComponent={
           examples.length > 1 && (
             <Menu
-              label="Examples"
+              label="مثال ها"
               trigger={
                 <Button appearance="minimal" iconRight="caret-down">
-                  Examples
+                  مثال ها
                 </Button>
               }
             >

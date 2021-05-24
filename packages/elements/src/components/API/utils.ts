@@ -59,7 +59,7 @@ export const computeAPITree = (serviceNode: ServiceNode) => {
     tree.push({
       id: '/',
       slug: '/',
-      title: 'Overview',
+      title: 'شرح سرویس',
       type: 'overview',
       meta: '',
     });
@@ -68,7 +68,7 @@ export const computeAPITree = (serviceNode: ServiceNode) => {
   const operationNodes = serviceNode.children.filter(node => node.type === NodeType.HttpOperation);
   if (operationNodes.length) {
     tree.push({
-      title: 'Endpoints',
+      title: 'اجزای سرویس',
     });
 
     const { groups, ungrouped } = computeTagGroups(serviceNode);
@@ -103,7 +103,7 @@ export const computeAPITree = (serviceNode: ServiceNode) => {
   const schemaNodes = serviceNode.children.filter(node => node.type === NodeType.Model);
   if (schemaNodes.length) {
     tree.push({
-      title: 'Schemas',
+      title: 'ساختار داده ها',
     });
 
     schemaNodes.forEach(node => {

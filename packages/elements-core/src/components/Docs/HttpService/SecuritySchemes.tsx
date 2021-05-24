@@ -70,27 +70,25 @@ function getDefaultDescription(scheme: HttpSecurityScheme) {
 }
 
 function getApiKeyDescription(inProperty: 'header' | 'cookie' | 'query', name: string) {
-  return `An API key is a token that you provide when making API calls. Include the token in a ${inProperty} parameter called \`${name}\`.
+  return `این سرویس توسط مکانیزم API-Key محافظت شده است و برای استفاده از آن می بایست پارامتر \`${name}\` در قسمت ${inProperty} لحاظ شود.
 
   Example: ${inProperty === 'query' ? `\`?${name}=123\`` : `\`${name}: 123\``}`;
 }
 
 function getBasicAuthDescription() {
-  return `Basic authentication is a simple authentication scheme built into the HTTP protocol.
-  To use it, send your HTTP requests with an Authorization header that contains the word Basic
-  followed by a space and a base64-encoded string \`username:password\`.
+  return `این سرویس از طریق Basic Authentication قابل دسترس می باشد و برای استفاده از آن می بایست نام کاربری را بصورت Base64 بصورت \`username:password\` ارسال نمایید
 
   Example: \`Authorization: Basic ZGVtbzpwQDU1dzByZA==\``;
 }
 
 function getBearerAuthDescription() {
-  return `Provide your bearer token in the Authorization header when making requests to protected resources.
+  return `این سرویس توسط توکن Bearer قابل دسترس می باشد و برای استفاده از آن می بایست این توکن را در Authorization Header تنظیم نمایید
 
   Example: \`Authorization: Bearer 123\``;
 }
 
 function getDigestAuthDescription() {
-  return `Provide your encrypted digest scheme data in the Authorization header when making requests to protected resources.
+  return `این سرویس با استفاده از مکانیزم Digest Authentication در دسترس می باشد 
 
   Example: \`Authorization: Digest username=guest, realm="test", nonce="2", uri="/uri", response="123"\``;
 }
