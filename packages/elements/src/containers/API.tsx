@@ -1,14 +1,16 @@
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { InlineRefResolverProvider } from '@stoplight/elements-core/context/InlineRefResolver';
-import { withPersistenceBoundary } from '@stoplight/elements-core/context/Persistence';
-import { withMosaicProvider } from '@stoplight/elements-core/hoc/withMosaicProvider';
-import { withQueryClientProvider } from '@stoplight/elements-core/hoc/withQueryClientProvider';
-import { withRouter } from '@stoplight/elements-core/hoc/withRouter';
-import { useBundleRefsIntoDocument } from '@stoplight/elements-core/hooks/useBundleRefsIntoDocument';
-import { useParsedValue } from '@stoplight/elements-core/hooks/useParsedValue';
-import { withStyles } from '@stoplight/elements-core/styled';
-import { RoutingProps } from '@stoplight/elements-core/types';
+import {
+  InlineRefResolverProvider,
+  RoutingProps,
+  useBundleRefsIntoDocument,
+  useParsedValue,
+  withMosaicProvider,
+  withPersistenceBoundary,
+  withQueryClientProvider,
+  withRouter,
+  withStyles,
+} from '@stoplight/elements-core';
 import { Box, Flex, Icon } from '@stoplight/mosaic';
 import { NonIdealState } from '@stoplight/ui-kit';
 import { pipe } from 'lodash/fp';
@@ -50,6 +52,11 @@ export interface CommonAPIProps extends RoutingProps {
    */
   layout?: 'sidebar' | 'stacked';
   logo?: string;
+
+  /**
+   * Allows to hide TryIt component
+   */
+  hideTryIt?: boolean;
 }
 
 const propsAreWithDocument = (props: APIProps): props is APIPropsWithDocument => {
@@ -57,7 +64,7 @@ const propsAreWithDocument = (props: APIProps): props is APIPropsWithDocument =>
 };
 
 const APIImpl: React.FC<APIProps> = props => {
-  const { layout, apiDescriptionUrl = '', logo } = props;
+  const { layout, apiDescriptionUrl = '', logo, hideTryIt } = props;
   const apiDescriptionDocument = propsAreWithDocument(props) ? props.apiDescriptionDocument : undefined;
 
   const { data: fetchedDocument, error } = useQuery(
@@ -113,9 +120,9 @@ const APIImpl: React.FC<APIProps> = props => {
   return (
     <InlineRefResolverProvider document={parsedDocument}>
       {layout === 'stacked' ? (
-        <APIWithStackedLayout serviceNode={serviceNode} />
+        <APIWithStackedLayout serviceNode={serviceNode} hideTryIt={hideTryIt} />
       ) : (
-        <APIWithSidebarLayout logo={logo} serviceNode={serviceNode} />
+        <APIWithSidebarLayout logo={logo} serviceNode={serviceNode} hideTryIt={hideTryIt} />
       )}
     </InlineRefResolverProvider>
   );

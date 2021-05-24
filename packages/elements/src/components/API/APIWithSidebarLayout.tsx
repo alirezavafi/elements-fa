@@ -1,8 +1,4 @@
-import { ParsedDocs } from '@stoplight/elements-core/components/Docs';
-import { SidebarLayout } from '@stoplight/elements-core/components/Layout/SidebarLayout';
-import { Logo } from '@stoplight/elements-core/components/Logo';
-import { TableOfContents } from '@stoplight/elements-core/components/MosaicTableOfContents';
-import { PoweredByLink } from '@stoplight/elements-core/components/PoweredByLink';
+import { Logo, ParsedDocs, PoweredByLink, SidebarLayout, TableOfContents } from '@stoplight/elements-core';
 import { Box, Flex, Heading } from '@stoplight/mosaic';
 import * as React from 'react';
 import { Link, Redirect, useLocation } from 'react-router-dom';
@@ -13,11 +9,13 @@ import { computeAPITree, findFirstNodeSlug } from './utils';
 type SidebarLayoutProps = {
   serviceNode: ServiceNode;
   logo?: string;
+  hideTryIt?: boolean;
 };
 
-export const APIWithSidebarLayout: React.FC<SidebarLayoutProps> = ({ serviceNode, logo }) => {
+export const APIWithSidebarLayout: React.FC<SidebarLayoutProps> = ({ serviceNode, logo, hideTryIt }) => {
   const tree = React.useMemo(() => computeAPITree(serviceNode), [serviceNode]);
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const { pathname } = location;
 
   const hasOverview = !!serviceNode.data.description;
   const isRootPath = !pathname || pathname === '/';
@@ -50,7 +48,16 @@ export const APIWithSidebarLayout: React.FC<SidebarLayoutProps> = ({ serviceNode
 
   return (
     <SidebarLayout sidebar={sidebar}>
-      {node && <Box as={ParsedDocs} key={pathname} uri={hasOverview ? pathname : undefined} node={node} />}
+      {node && (
+        <Box
+          as={ParsedDocs}
+          key={pathname}
+          uri={hasOverview ? pathname : undefined}
+          node={node}
+          hideTryIt={hideTryIt}
+          location={location}
+        />
+      )}
     </SidebarLayout>
   );
 };
