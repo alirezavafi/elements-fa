@@ -54,22 +54,22 @@ export const computeTagGroups = (serviceNode: ServiceNode) => {
 export const computeAPITree = (serviceNode: ServiceNode) => {
   const tree: TableOfContentsItem[] = [];
 
-  // Only show overview if service node has a description
-  if (serviceNode.data.description) {
-    tree.push({
-      id: '/',
-      slug: '/',
-      title: 'شرح سرویس',
-      type: 'overview',
-      meta: '',
-    });
-  }
+  // // Only show overview if service node has a description
+  // if (serviceNode.data.description) {
+  //   tree.push({
+  //     id: '/',
+  //     slug: '/',
+  //     title: 'شرح سرویس',
+  //     type: 'overview',
+  //     meta: '',
+  //   });
+  // }
 
   const operationNodes = serviceNode.children.filter(node => node.type === NodeType.HttpOperation);
   if (operationNodes.length) {
-    tree.push({
-      title: 'اجزای سرویس',
-    });
+    // tree.push({
+    //   title: 'اجزای سرویس',
+    // });
 
     const { groups, ungrouped } = computeTagGroups(serviceNode);
 
@@ -100,22 +100,22 @@ export const computeAPITree = (serviceNode: ServiceNode) => {
     });
   }
 
-  const schemaNodes = serviceNode.children.filter(node => node.type === NodeType.Model);
-  if (schemaNodes.length) {
-    tree.push({
-      title: 'ساختار داده ها',
-    });
+  // const schemaNodes = serviceNode.children.filter(node => node.type === NodeType.Model);
+  // if (schemaNodes.length) {
+  //   tree.push({
+  //     title: 'ساختار داده ها',
+  //   });
 
-    schemaNodes.forEach(node => {
-      tree.push({
-        id: node.uri,
-        slug: node.uri,
-        title: node.name,
-        type: node.type,
-        meta: '',
-      });
-    });
-  }
+  //   schemaNodes.forEach(node => {
+  //     tree.push({
+  //       id: node.uri,
+  //       slug: node.uri,
+  //       title: node.name,
+  //       type: node.type,
+  //       meta: '',
+  //     });
+  //   });
+  // }
 
   return tree;
 };

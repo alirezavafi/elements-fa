@@ -37,7 +37,9 @@ export const APIWithSidebarLayout: React.FC<SidebarLayoutProps> = ({ serviceNode
         ) : (
           serviceNode.data.logo && <Logo logo={serviceNode.data.logo} />
         )}
-        <Heading size={4}>{serviceNode.name}</Heading>
+        <Link to="/">
+          <Heading size={4}>{serviceNode.name}</Heading>
+        </Link>
       </Flex>
       <Flex flexGrow flexShrink overflowY="auto" direction="col">
         <TableOfContents tree={tree} activeId={pathname} Link={Link} />

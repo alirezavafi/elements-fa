@@ -1,4 +1,4 @@
-import { Box, InvertTheme, VStack } from '@stoplight/mosaic';
+import { Box, VStack } from '@stoplight/mosaic';
 import { Request as HarRequest } from 'har-format';
 import * as React from 'react';
 
@@ -14,11 +14,9 @@ export const TryItWithRequestSamples: React.FC<TryItWithRequestSamplesProps> = (
   return (
     <VStack spacing={6}>
       {!hideTryIt && (
-        <InvertTheme>
-          <Box>
-            <TryIt {...props} onRequestChange={setRequestData} />
-          </Box>
-        </InvertTheme>
+        <Box>
+          <TryIt {...props} onRequestChange={setRequestData} />
+        </Box>
       )}
 
       {requestData && <RequestSamples request={requestData} />}

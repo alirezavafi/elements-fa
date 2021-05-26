@@ -185,7 +185,7 @@ export const TryIt: React.FC<TryItProps> = ({ httpOperation, mockUrl, onRequestC
 
 const TryItResponse: React.FC<{ response: ResponseState }> = ({ response }) => (
   <Panel defaultIsOpen>
-    <Panel.Titlebar>Response</Panel.Titlebar>
+    <Panel.Titlebar>پاسخ</Panel.Titlebar>
     <Panel.Content>
       <div>
         <div className={`mb-3 text-${getHttpCodeColor(response.status)}`}>

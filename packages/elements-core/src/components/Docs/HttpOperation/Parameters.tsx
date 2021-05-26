@@ -91,8 +91,8 @@ export const Parameter: React.FunctionComponent<IParameterProps> = ({ parameter,
           <div className={'ml-2 sl-text-muted'}>{format ? `${type}<${format}>` : type}</div>
         </div>
         <div className="sl-text-sm sl-text-warning">
-          {deprecated && <span className="sl-ml-2">deprecated</span>}
-          {parameter.required && <span className="sl-ml-2">required</span>}
+          {deprecated && <span className="sl-ml-2">منقضی</span>}
+          {parameter.required && <span className="sl-ml-2">اجباری</span>}
         </div>
       </div>
 

@@ -4,3 +4,43 @@
 .sl-elements {
   @import './elements';
 }
+
+html {
+	direction: rtl
+}
+
+.sl-elements .sl-ml-16 {
+	margin-left: 64px;
+	margin-right: 64px
+}
+
+.sl-panel {
+	direction: ltr
+}
+
+.sl-elements .sl-text-muted {
+	direction: rtl
+}
+
+.sl-elements .sl-font-mono {
+	direction: ltr
+}
+
+.sl-elements .sl-pl-4 {
+	padding-right: 16px
+}
+
+.sl-elements h4 {
+	margin-right: 10px !important
+}
+
+.sl-elements .mr-2 {
+	margin-right: 0 !important;
+	margin-left: 0.5rem;
+	margin-top: -4px
+}
+
+.sl-elements .sl-px-24 {
+	padding-left: 0px !important;
+	padding-right: 36px !important
+}

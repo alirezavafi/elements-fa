@@ -27,7 +27,7 @@ export const SecuritySchemes: React.FC<SecuritySchemesProps> = ({ schemes, defau
   return (
     <Panel rounded isCollapsible={false}>
       <Panel.Titlebar bg="canvas-300">
-        <span role="heading">Security</span>
+        <span role="heading">امنیت سرویس</span>
       </Panel.Titlebar>
       <Panel.Content p={0}>
         {sortBy(schemes, 'type').map((scheme, i) => (
@@ -40,7 +40,9 @@ export const SecuritySchemes: React.FC<SecuritySchemesProps> = ({ schemes, defau
               <span role="heading">{getReadableSecurityName(scheme)}</span>
             </Panel.Titlebar>
             <Panel.Content>
-              <MarkdownViewer markdown={scheme.description || getDefaultDescription(scheme)} />
+              <div style={{ direction: 'rtl' }}>
+                <MarkdownViewer markdown={scheme.description || getDefaultDescription(scheme)} />
+              </div>
             </Panel.Content>
           </Panel>
         ))}
@@ -72,25 +74,25 @@ function getDefaultDescription(scheme: HttpSecurityScheme) {
 function getApiKeyDescription(inProperty: 'header' | 'cookie' | 'query', name: string) {
   return `این سرویس توسط مکانیزم API-Key محافظت شده است و برای استفاده از آن می بایست پارامتر \`${name}\` در قسمت ${inProperty} لحاظ شود.
 
-  Example: ${inProperty === 'query' ? `\`?${name}=123\`` : `\`${name}: 123\``}`;
+  مثال: ${inProperty === 'query' ? `\`?${name}=123\`` : `\`${name}: 123\``}`;
 }
 
 function getBasicAuthDescription() {
   return `این سرویس از طریق Basic Authentication قابل دسترس می باشد و برای استفاده از آن می بایست نام کاربری را بصورت Base64 بصورت \`username:password\` ارسال نمایید
 
-  Example: \`Authorization: Basic ZGVtbzpwQDU1dzByZA==\``;
+  مثال: \`Authorization: Basic ZGVtbzpwQDU1dzByZA==\``;
 }
 
 function getBearerAuthDescription() {
   return `این سرویس توسط توکن Bearer قابل دسترس می باشد و برای استفاده از آن می بایست این توکن را در Authorization Header تنظیم نمایید
 
-  Example: \`Authorization: Bearer 123\``;
+  مثال: \`Authorization: Bearer 123\``;
 }
 
 function getDigestAuthDescription() {
   return `این سرویس با استفاده از مکانیزم Digest Authentication در دسترس می باشد 
 
-  Example: \`Authorization: Digest username=guest, realm="test", nonce="2", uri="/uri", response="123"\``;
+  مثال: \`Authorization: Digest username=guest, realm="test", nonce="2", uri="/uri", response="123"\``;
 }
 
 function getOAuthDescription(scheme: IOauth2SecurityScheme) {
