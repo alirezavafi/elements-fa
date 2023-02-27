@@ -46,7 +46,7 @@ export const Parameters: React.FunctionComponent<ParametersProps> = ({ parameter
 
   return <JsonSchemaViewer resolveRef={refResolver} schema={schema} disableCrumbs nodeHasChanged={nodeHasChanged} />;
 };
-Parameters.displayName = 'HttpOperation.Parameters';
+Parameters.displayName = 'پارامترها';
 
 const httpOperationParamsToSchema = ({ parameters, parameterType }: ParametersProps): JSONSchema7Object | null => {
   if (!parameters || !parameters.length) return null;

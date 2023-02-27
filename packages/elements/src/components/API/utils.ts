@@ -70,7 +70,7 @@ export const computeAPITree = (serviceNode: ServiceNode, config: ComputeAPITreeC
   tree.push({
     id: '/',
     slug: '/',
-    title: 'Overview',
+    title: 'معرفی',
     type: 'overview',
     meta: '',
   });
@@ -78,7 +78,7 @@ export const computeAPITree = (serviceNode: ServiceNode, config: ComputeAPITreeC
   const operationNodes = serviceNode.children.filter(node => node.type === NodeType.HttpOperation);
   if (operationNodes.length) {
     tree.push({
-      title: 'Endpoints',
+      title: 'سرویس ها',
     });
 
     const { groups, ungrouped } = computeTagGroups(serviceNode);
@@ -126,7 +126,7 @@ export const computeAPITree = (serviceNode: ServiceNode, config: ComputeAPITreeC
 
   if (!mergedConfig.hideSchemas && schemaNodes.length) {
     tree.push({
-      title: 'Schemas',
+      title: 'ساختار داده',
     });
 
     schemaNodes.forEach(node => {

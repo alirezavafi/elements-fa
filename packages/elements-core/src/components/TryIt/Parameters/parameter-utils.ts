@@ -7,14 +7,14 @@ export type ParameterSpec = Pick<IHttpParam, 'name' | 'schema' | 'required'> & {
   examples?: (Omit<INodeExample, 'id'> | Omit<INodeExternalExample, 'id'>)[];
 };
 const booleanOptions = [
-  { label: 'Not Set', value: '' },
+  { label: 'مثداری انتخاب نشده است', value: '' },
   { label: 'False', value: 'false' },
   { label: 'True', value: 'true' },
 ];
 
 function enumOptions(enumValues: JSONSchema7Type[], required?: boolean) {
   const options = map(enumValues, v => ({ value: typeof v === 'number' ? v : String(v) }));
-  return required ? options : [{ label: 'Not Set', value: '' }, ...options];
+  return required ? options : [{ label: 'مقداری انتخاب نشده است', value: '' }, ...options];
 }
 
 export function parameterOptions(parameter: ParameterSpec) {
@@ -25,7 +25,7 @@ export function parameterOptions(parameter: ParameterSpec) {
     : null;
 }
 
-export const selectExampleOption = { value: '', label: 'Pick an example' };
+export const selectExampleOption = { value: '', label: 'انتخاب مثال' };
 
 export function exampleOptions(parameter: ParameterSpec) {
   return parameter.examples?.length && parameter.examples.length > 1
@@ -60,7 +60,7 @@ function escapeQuotes(value: string) {
 export function getPlaceholderForParameter(parameter: ParameterSpec) {
   const { value: parameterValue, isDefault } = getValueForParameter(parameter);
 
-  if (parameterValue) return `${isDefault ? 'defaults to' : 'example'}: ${parameterValue}`;
+  if (parameterValue) return `${isDefault ? 'بصورت پیشفرض' : 'مثال'}: ${parameterValue}`;
 
   return String(parameter.schema?.type ?? '');
 }

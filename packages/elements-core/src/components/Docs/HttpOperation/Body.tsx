@@ -42,11 +42,11 @@ export const Body = ({ body, onChange }: BodyProps) => {
 
   return (
     <VStack spacing={6}>
-      <SectionSubtitle title="Body" id="request-body">
+      <SectionSubtitle title="درخواست" id="request-body">
         {contents.length > 0 && (
           <Flex flex={1} justify="end">
             <Select
-              aria-label="Request Body Content Type"
+              aria-label="نوع محتوای ورودی"
               value={String(chosenContent)}
               onChange={(value: string | number) => setChosenContent(parseInt(String(value), 10))}
               options={contents.map((content, index) => ({ label: content.mediaType, value: index }))}
@@ -75,4 +75,4 @@ export const Body = ({ body, onChange }: BodyProps) => {
     </VStack>
   );
 };
-Body.displayName = 'HttpOperation.Body';
+Body.displayName = 'درخواست';

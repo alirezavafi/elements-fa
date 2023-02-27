@@ -39,7 +39,7 @@ export const FileUploadParameterEditor: React.FC<FileUploadParameterEditorProps>
           aria-label={parameter.name}
           appearance="minimal"
           flex={1}
-          placeholder="pick a file"
+          placeholder="انتخاب فایل"
           type="text"
           required
           value={value?.name ?? ''}

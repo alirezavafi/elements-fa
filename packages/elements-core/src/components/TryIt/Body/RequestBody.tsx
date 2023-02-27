@@ -18,7 +18,7 @@ export const RequestBody: React.FC<RequestBodyProps> = ({ examples, requestBody,
           examples.length > 1 && <ExampleMenu examples={examples} requestBody={requestBody} onChange={onChange} />
         }
       >
-        Body
+        درخواست
       </Panel.Titlebar>
       <Panel.Content className="TextRequestBody">
         <CodeEditor
@@ -30,7 +30,7 @@ export const RequestBody: React.FC<RequestBodyProps> = ({ examples, requestBody,
           style={
             // when not rendering in prose (markdown), reduce font size to be consistent with base UI
             {
-              fontSize: 12,
+              fontSize: 14,
             }
           }
         />
@@ -59,11 +59,11 @@ function ExampleMenu({ examples, requestBody, onChange }: RequestBodyProps) {
 
   return (
     <Menu
-      aria-label="Examples"
+      aria-label="مثالها"
       items={menuItems}
       renderTrigger={({ isOpen }) => (
         <Button appearance="minimal" size="sm" iconRight={['fas', 'sort']} active={isOpen}>
-          Examples
+          مثالها
         </Button>
       )}
     />

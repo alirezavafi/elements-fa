@@ -16,7 +16,7 @@ export const ServersDropdown = ({ servers }: ServersDropdownProps) => {
   const serverItems: MenuItem[] = [
     {
       type: 'option_group',
-      title: 'Servers',
+      title: 'سرورها',
       value: chosenServer?.url || '',
       onChange: url => {
         const server = servers.find(server => server.url === url);
@@ -35,12 +35,12 @@ export const ServersDropdown = ({ servers }: ServersDropdownProps) => {
 
   return (
     <Menu
-      aria-label="Server"
+      aria-label="سرور"
       items={serverItems}
       closeOnPress
       renderTrigger={({ isOpen }) => (
         <FieldButton icon={faServer} size="sm" active={isOpen}>
-          {chosenServer?.description || 'Server'}
+          {chosenServer?.description || 'سرور'}
         </FieldButton>
       )}
     />

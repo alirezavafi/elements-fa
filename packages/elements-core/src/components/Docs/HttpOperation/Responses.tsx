@@ -51,7 +51,7 @@ export const Responses = ({ responses: unsortedResponses, onStatusCodeChange, on
 
   return (
     <VStack spacing={8} as={Tabs} selectedId={activeResponseId} onChange={setActiveResponseId} appearance="pill">
-      <SectionTitle title="Responses">
+      <SectionTitle title="پاسخها">
         <TabList density="compact">
           {responses.map(({ code }) => (
             <Tab key={code} id={code} intent={codeToIntentVal(code)}>
@@ -71,7 +71,7 @@ export const Responses = ({ responses: unsortedResponses, onStatusCodeChange, on
     </VStack>
   );
 };
-Responses.displayName = 'HttpOperation.Responses';
+Responses.displayName = 'پاسخها';
 
 const Response = ({ response, onMediaTypeChange }: ResponseProps) => {
   const { contents = [], headers = [], description } = response;
@@ -100,17 +100,17 @@ const Response = ({ response, onMediaTypeChange }: ResponseProps) => {
 
       {headers.length > 0 && (
         <VStack spacing={5}>
-          <SectionSubtitle title="Headers" id="response-headers" />
+          <SectionSubtitle title="هدرها" id="response-headers" />
           <Parameters parameterType="header" parameters={headers} />
         </VStack>
       )}
 
       {contents.length > 0 && (
         <>
-          <SectionSubtitle title="Body" id="response-body">
+          <SectionSubtitle title="محتوا" id="response-body">
             <Flex flex={1} justify="end">
               <Select
-                aria-label="Response Body Content Type"
+                aria-label="نوع محتوای پاسخ درخواست"
                 value={String(chosenContent)}
                 onChange={(value: string | number) => setChosenContent(parseInt(String(value), 10))}
                 options={contents.map((content, index) => ({ label: content.mediaType, value: index }))}
@@ -134,7 +134,7 @@ const Response = ({ response, onMediaTypeChange }: ResponseProps) => {
     </VStack>
   );
 };
-Response.displayName = 'HttpOperation.Response';
+Response.displayName = 'پاسخ';
 
 const codeToIntentVal = (code: string): IntentVals => {
   const firstChar = code.charAt(0);

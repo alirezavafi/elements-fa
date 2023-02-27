@@ -15,30 +15,30 @@ export const BasicAuth: React.FC<BasicAuthProps> = ({ onChange, value }) => {
 
   return (
     <Panel.Content className="ParameterGrid">
-      <div>Username</div>
+      <div>نام کاربری</div>
       <Text mx={3}>:</Text>
       <Flex flex={1}>
         <Input
           style={{ paddingLeft: 15 }}
-          aria-label="Username"
+          aria-label="نام کاربری"
           appearance="minimal"
           flex={1}
-          placeholder="username"
+          placeholder="نام کاربری"
           value={username}
           type="text"
           required
           onChange={e => onCredentialsChange(e.currentTarget.value, password)}
         />
       </Flex>
-      <div>Password</div>
+      <div>کلمه عبور</div>
       <Text mx={3}>:</Text>
       <Flex flex={1}>
         <Input
           style={{ paddingLeft: 15 }}
-          aria-label="Password"
+          aria-label="کلمه عبور"
           appearance="minimal"
           flex={1}
-          placeholder="password"
+          placeholder="کلمه عبور"
           value={password}
           type="password"
           required

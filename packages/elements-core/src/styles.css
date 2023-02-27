@@ -2,3 +2,61 @@
 @import '@stoplight/mosaic/themes/default.css';
 
 @import 'core.css';
+
+.sl-code-viewer {
+    direction: ltr;
+}
+
+html {
+	direction: rtl
+}
+
+.sl-elements .sl-ml-16 {
+	margin-left: 64px;
+	margin-right: 64px
+}
+
+.sl-panel {
+	direction: ltr
+}
+
+.sl-panel__titlebar {
+    direction: rtl;
+}
+
+.sl-elements .sl-text-muted {
+	direction: rtl
+}
+
+.sl-elements .sl-font-mono {
+	direction: ltr
+}
+
+.sl-elements .sl-pl-4 {
+	padding-right: 16px
+}
+
+.sl-elements h4 {
+	margin-right: 10px !important
+}
+
+.sl-elements .mr-2 {
+	margin-right: 0 !important;
+	margin-left: 0.5rem;
+	margin-top: -4px
+}
+
+.sl-elements .sl-px-24 {
+	padding-left: 0px !important;
+	padding-right: 36px !important
+}
+
+.sl-prose ul:not(.contains-task-list) li:before {
+    right: 0.75em;
+    left: initial;
+}
+
+.sl-prose li {
+    padding-left: initial;
+    padding-right: 1.75em;
+}

@@ -40,7 +40,7 @@ export const FormDataBody: React.FC<FormDataBodyProps> = ({
 
   return (
     <Panel defaultIsOpen>
-      <Panel.Titlebar>Body</Panel.Titlebar>
+      <Panel.Titlebar>درخواست</Panel.Titlebar>
       <Panel.Content className="sl-overflow-y-auto ParameterGrid OperationParametersContent">
         {mapSchemaPropertiesToParameters(parameters, required).map(parameter => {
           const supportsFileUpload = parameterSupportsFileUpload(parameter);

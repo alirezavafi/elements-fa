@@ -115,12 +115,12 @@ const ModelExamples = React.memo(({ data, isCollapsible = false }: { data: JSONS
 
   const examplesSelect = examples.length > 1 && (
     <Select
-      aria-label="Example"
+      aria-label="مثال"
       value={String(chosenExampleIndex)}
       options={examples.map(({ label }, index) => ({ value: index, label }))}
       onChange={(value: string | number) => setChosenExampleIndex(parseInt(String(value), 10))}
       size="sm"
-      triggerTextPrefix="Example: "
+      triggerTextPrefix="مثال: "
     />
   );
 
@@ -129,7 +129,7 @@ const ModelExamples = React.memo(({ data, isCollapsible = false }: { data: JSONS
       <Panel.Titlebar rightComponent={selectedExample ? <CopyButton size="sm" copyValue={selectedExample} /> : null}>
         {examplesSelect || (
           <Text color="body" role="heading">
-            Example
+            مثال
           </Text>
         )}
       </Panel.Titlebar>

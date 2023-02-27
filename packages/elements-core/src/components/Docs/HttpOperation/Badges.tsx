@@ -8,11 +8,11 @@ export const DeprecatedBadge: React.FC = () => (
   <Tooltip
     renderTrigger={
       <Badge intent="warning" icon={['fas', 'exclamation-circle']} data-testid="badge-deprecated">
-        Deprecated
+        منقضی شده
       </Badge>
     }
   >
-    This operation has been marked as deprecated, which means it could be removed at some point in the future.
+    این سرویس منقضی شده است و در نسخه های بعدی حذف خواهد شد
   </Tooltip>
 );
 
@@ -20,11 +20,11 @@ export const InternalBadge: React.FC<{ isHttpService?: boolean }> = ({ isHttpSer
   <Tooltip
     renderTrigger={
       <Badge icon={faEye} data-testid="badge-internal" bg="danger">
-        Internal
+        داخلی
       </Badge>
     }
   >
-    {`This ${isHttpService ? 'operation' : 'model'} is marked as internal and won't be visible in public docs.`}
+    {`این ${isHttpService ? 'operation' : 'model'} بعنوان اجزای داخلی ثبت شده است و امکان نمایش آن وجود ندارد.`}
   </Tooltip>
 );
 

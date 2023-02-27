@@ -48,34 +48,34 @@ export const Request: React.FunctionComponent<IRequestProps> = ({
 
   return (
     <VStack spacing={8}>
-      <SectionTitle title="Request" />
+      <SectionTitle title="درخواست" />
 
       <SecuritySchemes schemes={securitySchemes} />
 
       {pathParams.length > 0 && (
         <VStack spacing={5}>
-          <SectionSubtitle title="Path Parameters" />
+          <SectionSubtitle title="پارامتر از نوع Path" />
           <Parameters parameterType="path" parameters={pathParams} />
         </VStack>
       )}
 
       {queryParams.length > 0 && (
         <VStack spacing={5}>
-          <SectionSubtitle title="Query Parameters" />
+          <SectionSubtitle title="پارامتر از نوع Query" />
           <Parameters parameterType="query" parameters={queryParams} />
         </VStack>
       )}
 
       {headerParams.length > 0 && (
         <VStack spacing={5}>
-          <SectionSubtitle title="Headers" id="request-headers" />
+          <SectionSubtitle title="هدرها" id="request-headers" />
           <Parameters parameterType="header" parameters={headerParams} />
         </VStack>
       )}
 
       {cookieParams.length > 0 && (
         <VStack spacing={5}>
-          <SectionSubtitle title="Cookies" id="request-cookies" />
+          <SectionSubtitle title="کوکی" id="request-cookies" />
           <Parameters parameterType="cookie" parameters={cookieParams} />
         </VStack>
       )}
@@ -84,7 +84,7 @@ export const Request: React.FunctionComponent<IRequestProps> = ({
     </VStack>
   );
 };
-Request.displayName = 'HttpOperation.Request';
+Request.displayName = 'درخواست';
 
 const schemeExpandedState = atomWithStorage<Record<string, boolean>>('HttpOperation_security_expanded', {});
 
@@ -93,12 +93,12 @@ const SecurityPanel: React.FC<{ scheme: HttpSecurityScheme; includeKey: boolean 
 
   return (
     <SubSectionPanel
-      title={`Security: ${getReadableSecurityName(scheme, includeKey)}`}
+      title={`امنیت: ${getReadableSecurityName(scheme, includeKey)}`}
       defaultIsOpen={!!expandedState[scheme.key]}
       onChange={isOpen => setExpanded({ ...expandedState, [scheme.key]: isOpen })}
     >
       <MarkdownViewer
-        style={{ fontSize: 12 }}
+        style={{ fontSize: 14, direction: 'rtl' }}
         markdown={`${scheme.description || ''}\n\n` + getDefaultDescription(scheme)}
       />
     </SubSectionPanel>

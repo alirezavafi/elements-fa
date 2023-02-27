@@ -60,7 +60,7 @@ const getSecuritySchemeNames = (securitySchemes: HttpSecurityScheme[]): string[]
     }
 
     if (isOAuth2SecurityScheme(scheme)) {
-      return 'Authorization';
+      return 'احراز';
     }
 
     return [];

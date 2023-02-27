@@ -38,7 +38,7 @@ export const TryItAuth: React.FC<TryItAuthProps> = ({ operationSecurityScheme: o
     const items: MenuItems = [
       {
         type: 'group',
-        title: 'Security Schemes',
+        title: 'احراز هویت',
         children: filteredSecurityItems.map(auth => ({
           id: `security-scheme-${auth.key}`,
           title: getReadableSecurityName(auth, shouldIncludeKey(filteredSecurityItems, auth.type)),
@@ -73,7 +73,7 @@ export const TryItAuth: React.FC<TryItAuthProps> = ({ operationSecurityScheme: o
           )
         }
       >
-        Auth
+        احراز هویت
       </Panel.Titlebar>
       {
         <SecuritySchemeComponent

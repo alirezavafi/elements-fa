@@ -94,7 +94,7 @@ const HttpOperationComponent = React.memo<HttpOperationProps>(
     );
   },
 );
-HttpOperationComponent.displayName = 'HttpOperation.Component';
+HttpOperationComponent.displayName = 'اجزا';
 
 export const HttpOperation = withErrorBoundary<HttpOperationProps>(HttpOperationComponent, {
   recoverableProps: ['data'],

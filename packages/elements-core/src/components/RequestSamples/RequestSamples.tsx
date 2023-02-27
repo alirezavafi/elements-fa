@@ -75,12 +75,12 @@ export const RequestSamples = React.memo<RequestSamplesProps>(({ request, embedd
       <Panel.Titlebar rightComponent={<CopyButton size="sm" copyValue={requestSample || ''} />}>
         <Box ml={-2}>
           <Menu
-            aria-label="Request Sample Language"
+            aria-label="زبان نمونه کد"
             closeOnPress
             items={menuItems}
             renderTrigger={({ isOpen }) => (
               <Button size="sm" iconRight="chevron-down" appearance="minimal" active={isOpen}>
-                Request Sample: {selectedLanguage} {selectedLibrary ? ` / ${selectedLibrary}` : ''}
+                نمونه کد: {selectedLanguage} {selectedLibrary ? ` / ${selectedLibrary}` : ''}
               </Button>
             )}
           />

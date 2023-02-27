@@ -75,7 +75,7 @@ export const TryItResponse: React.FC<{ response: ResponseState }> = ({ response 
           bodyFormats.length > 1 && <ResponseMenu types={bodyFormats} type={bodyFormat} onChange={setBodyFormat} />
         }
       >
-        Response
+        پاسخ
       </Panel.Titlebar>
       <Panel.Content>
         <div>
@@ -98,7 +98,7 @@ export const TryItResponse: React.FC<{ response: ResponseState }> = ({ response 
           ) : (
             <p>
               <Box as={Icon} icon={['fas', 'exclamation-circle']} mr={2} />
-              No supported response body returned
+              مقدار بازگشتی پشتیبانی نمی شود
             </p>
           )}
         </div>
@@ -137,7 +137,7 @@ const ResponseMenu: React.FC<{
 
 export const ResponseError: React.FC<{ state: ErrorState }> = ({ state: { error } }) => (
   <Panel defaultIsOpen>
-    <Panel.Titlebar>Error</Panel.Titlebar>
+    <Panel.Titlebar>خطا</Panel.Titlebar>
     <Panel.Content>{isNetworkError(error) ? <NetworkErrorMessage /> : <p>{error.message}</p>}</Panel.Content>
   </Panel>
 );
@@ -145,15 +145,15 @@ export const ResponseError: React.FC<{ state: ErrorState }> = ({ state: { error 
 const NetworkErrorMessage = () => (
   <>
     <p className="sl-pb-2">
-      <strong>Network Error occurred.</strong>
+      <strong>خطای ارتباط رخ داده است</strong>
     </p>
 
-    <p className="sl-pb-2">1. Double check that your computer is connected to the internet.</p>
+    <p className="sl-pb-2">1. اتصال خود را به اینترنت چک نمایید.</p>
 
-    <p className="sl-pb-2">2. Make sure the API is actually running and available under the specified URL.</p>
+    <p className="sl-pb-2">2. مطمئن شوید آدرس سرویس را به درستی وارد نموده اید.</p>
 
     <p>
-      3. If you've checked all of the above and still experiencing issues, check if the API supports{' '}
+      3. در صورتی که موارد بالا را چک نمودید و مساله رفع نگردید لطفا سرویس را از جهت عملکرد مورد بررسی قرار دهید{' '}
       <Link
         target="_blank"
         rel="noopener noreferrer"

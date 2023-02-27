@@ -39,19 +39,19 @@ export const ResponseExamples = ({ httpOperation, responseMediaType, responseSta
 
   const examplesSelect = userDefinedExamples && userDefinedExamples.length > 1 && (
     <Select
-      aria-label="Response Example"
+      aria-label="نمونه پاسخ"
       value={String(chosenExampleIndex)}
       options={userDefinedExamples.map((example, index) => ({ value: index, label: example.key }))}
       onChange={(value: string | number) => setChosenExampleIndex(parseInt(String(value), 10))}
       size="sm"
-      triggerTextPrefix="Response Example: "
+      triggerTextPrefix="نمونه پاسخ: "
     />
   );
 
   return (
     <Panel rounded isCollapsible={false}>
       <Panel.Titlebar rightComponent={<CopyButton size="sm" copyValue={responseExample || ''} />}>
-        {examplesSelect || <Text color="body">Response Example</Text>}
+        <div style={{ direction: 'rtl' }}>{examplesSelect || <Text color="body">نمونه پاسخ</Text>}</div>
       </Panel.Titlebar>
       <Panel.Content p={0}>
         {show || !exceedsSize(responseExample) ? (

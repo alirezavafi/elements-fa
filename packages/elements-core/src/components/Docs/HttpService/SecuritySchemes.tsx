@@ -23,7 +23,7 @@ export const SecuritySchemes: React.FC<SecuritySchemesProps> = ({
     <Panel rounded isCollapsible={defaultCollapsed}>
       <Panel.Titlebar bg="canvas-300">
         <Box as="span" role="heading">
-          Security
+          امنیت
         </Box>
       </Panel.Titlebar>
       <Panel.Content p={0}>
@@ -59,7 +59,7 @@ const SecurityScheme: React.FC<
       </Panel.Titlebar>
       <Panel.Content>
         <MarkdownViewer
-          style={{ fontSize: 12 }}
+          style={{ fontSize: 14, direction: 'rtl' }}
           markdown={`${scheme.description || ''}\n\n` + getDefaultDescription(scheme)}
         />
       </Panel.Content>

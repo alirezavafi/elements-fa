@@ -262,7 +262,7 @@ export const TryIt: React.FC<TryItProps> = ({
       <Panel.Content className="SendButtonHolder" mt={4} pt={!isOnlySendButton && !embeddedInMd ? 0 : undefined}>
         <HStack alignItems="center" spacing={2}>
           <Button appearance="primary" loading={loading} disabled={loading} onPress={handleSendRequest} size="sm">
-            Send API Request
+            ارسال درخواست
           </Button>
 
           {servers.length > 1 && <ServersDropdown servers={servers} />}
@@ -275,7 +275,7 @@ export const TryIt: React.FC<TryItProps> = ({
         {validateParameters && hasRequiredButEmptyParameters && (
           <Box mt={4} color="danger-light" fontSize="sm">
             <Icon icon={['fas', 'exclamation-triangle']} className="sl-mr-1" />
-            You didn't provide all of the required parameters!
+            کلیه پارامترهای الزامی وارد نشده است.
           </Box>
         )}
       </Panel.Content>

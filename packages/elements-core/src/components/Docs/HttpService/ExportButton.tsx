@@ -21,12 +21,12 @@ export const ExportButton: React.FC<ExportButtonProps> = ({ original, bundled })
   return (
     <Box>
       <Menu
-        aria-label="Export"
+        aria-label="ذخیره فایل"
         items={menuItems}
         placement="bottom right"
         renderTrigger={({ isOpen }) => (
           <Button iconRight="chevron-down" appearance="default" ml={2} active={isOpen} size="sm">
-            Export
+            ذخیره فایل
           </Button>
         )}
       />
